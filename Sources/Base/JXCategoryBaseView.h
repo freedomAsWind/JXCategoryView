@@ -42,6 +42,8 @@ extern const CGFloat JXCategoryViewAutomaticDimension;
 
 @property (nonatomic, assign) CGFloat cellSpacing;    //cell之间的间距，默认20
 
+@property (nonatomic, assign) CGFloat extraBtnWidth; //右侧按钮宽度
+
 @property (nonatomic, assign) BOOL averageCellWidthEnabled;     //当cell内容总宽度小于JXCategoryBaseView的宽度，是否将cellWidth均分。默认为YES。
 
 /**

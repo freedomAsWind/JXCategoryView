@@ -239,7 +239,7 @@ const CGFloat JXCategoryViewAutomaticDimension = -1;
 #pragma mark - <UICollectionViewDelegateFlowLayout>
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, self.cellSpacing, 0, self.cellSpacing);
+    return UIEdgeInsetsMake(0, self.cellSpacing, 0, self.cellSpacing + self.extraBtnWidth);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
