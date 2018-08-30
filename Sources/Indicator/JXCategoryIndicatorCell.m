@@ -35,15 +35,10 @@
     self.separatorLine.frame = CGRectMake(self.bounds.size.width - lineWidth + self.cellModel.cellSpacing/2, (self.bounds.size.height - lineHeight)/2.0, lineWidth, lineHeight);
 }
 
-- (void)reloadDatas:(JXCategoryBaseCellModel *)cellModel {
-    [super reloadDatas:cellModel];
+- (void)reloadData:(JXCategoryBaseCellModel *)cellModel {
+    [super reloadData:cellModel];
 
     JXCategoryIndicatorCellModel *model = (JXCategoryIndicatorCellModel *)cellModel;
-    if (model.zoomEnabled) {
-        self.transform = CGAffineTransformMakeScale(model.zoomScale, model.zoomScale);
-    }else {
-        self.transform = CGAffineTransformIdentity;
-    }
     self.separatorLine.backgroundColor = model.separatorLineColor;
     self.separatorLine.hidden = !model.sepratorLineShowEnabled;
 

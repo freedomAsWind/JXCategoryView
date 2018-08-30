@@ -12,6 +12,7 @@
 #import "IndicatorImageViewViewController.h"
 #import "BackgroundImageViewController.h"
 #import "FootballViewController.h"
+#import "JXCategoryIndicatorDotLineView.h"
 
 @interface IndicatorCustomizeViewController ()
 
@@ -35,19 +36,19 @@
         }
     }
 
-    if (indexPath.row == 10) {
+    if (indexPath.row == 11) {
         //IndicatorImageView底部
         IndicatorImageViewViewController *indicatorImageViewVC = [[IndicatorImageViewViewController alloc] init];
         indicatorImageViewVC.title = title;
         [self.navigationController pushViewController:indicatorImageViewVC animated:YES];
         return;
-    }else if (indexPath.row == 11) {
+    }else if (indexPath.row == 12) {
         //IndicatorImageView cell背景
         BackgroundImageViewController *backgroundImageVC = [[BackgroundImageViewController alloc] init];
         backgroundImageVC.title = title;
         [self.navigationController pushViewController:backgroundImageVC animated:YES];
         return;
-    }else if (indexPath.row == 12) {
+    }else if (indexPath.row == 13) {
         //足球滚动
         FootballViewController *footballVC = [[FootballViewController alloc] init];
         footballVC.title = title;
@@ -104,7 +105,7 @@
             break;
         case 4:
         {
-            //三角形
+            //qq红点
             testVC.isNeedIndicatorPositionChangeItem = YES;
             titleCategoryView.titleColorGradientEnabled = YES;
             JXCategoryIndicatorBallView *ballView = [[JXCategoryIndicatorBallView alloc] init];
@@ -126,20 +127,35 @@
             titleCategoryView.titleColorGradientEnabled = YES;
             JXCategoryIndicatorBackgroundView *backgroundView = [[JXCategoryIndicatorBackgroundView alloc] init];
             backgroundView.backgroundViewHeight = 20;
+            backgroundView.backgroundViewCornerRadius = JXCategoryViewAutomaticDimension;
             titleCategoryView.indicators = @[backgroundView];
         }
             break;
         case 7:
         {
-            //长方形
+            //阴影
             titleCategoryView.titleColorGradientEnabled = YES;
             JXCategoryIndicatorBackgroundView *backgroundView = [[JXCategoryIndicatorBackgroundView alloc] init];
-            backgroundView.backgroundViewCornerRadius = 0;
-            backgroundView.backgroundViewHeight = JXCategoryViewAutomaticDimension;
+            backgroundView.backgroundViewHeight = 20;
+            backgroundView.backgroundViewCornerRadius = JXCategoryViewAutomaticDimension;
+            backgroundView.layer.shadowColor = [UIColor redColor].CGColor;
+            backgroundView.layer.shadowRadius = 3;
+            backgroundView.layer.shadowOffset = CGSizeMake(3, 4);
+            backgroundView.layer.shadowOpacity = 0.6;
             titleCategoryView.indicators = @[backgroundView];
         }
             break;
         case 8:
+        {
+            //长方形
+            titleCategoryView.titleColorGradientEnabled = YES;
+            JXCategoryIndicatorBackgroundView *backgroundView = [[JXCategoryIndicatorBackgroundView alloc] init];
+            backgroundView.backgroundViewHeight = JXCategoryViewAutomaticDimension;
+            backgroundView.backgroundViewCornerRadius = 0;
+            titleCategoryView.indicators = @[backgroundView];
+        }
+            break;
+        case 9:
         {
             //文字遮罩有背景
             titleCategoryView.titleColorGradientEnabled = NO;
@@ -151,7 +167,7 @@
             titleCategoryView.indicators = @[backgroundView];
         }
             break;
-        case 9:
+        case 10:
         {
             //文字遮罩无背景
             titleCategoryView.titleColorGradientEnabled = NO;
@@ -164,7 +180,7 @@
             titleCategoryView.indicators = @[backgroundView];
         }
             break;
-        case 13:
+        case 14:
         {
             //混合使用
             titleCategoryView.titleColorGradientEnabled = NO;
@@ -175,6 +191,15 @@
             backgroundView.backgroundViewHeight = 20;
 
             titleCategoryView.indicators = @[backgroundView, lineView];
+        }
+            break;
+        case 15:
+        {
+            //indicator自定义-点线效果
+            testVC.isNeedIndicatorPositionChangeItem = YES;
+            titleCategoryView.titleColorGradientEnabled = YES;
+            JXCategoryIndicatorDotLineView *lineView = [[JXCategoryIndicatorDotLineView alloc] init];
+            titleCategoryView.indicators = @[lineView];
         }
             break;
 

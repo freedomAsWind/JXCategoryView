@@ -41,11 +41,19 @@
     self.maskTitleLabel.center = self.contentView.center;
 }
 
-- (void)reloadDatas:(JXCategoryBaseCellModel *)cellModel {
-    [super reloadDatas:cellModel];
+- (void)reloadData:(JXCategoryBaseCellModel *)cellModel {
+    [super reloadData:cellModel];
 
     JXCategoryTitleCellModel *myCellModel = (JXCategoryTitleCellModel *)cellModel;
     self.titleLabel.font = myCellModel.titleFont;
+
+    if (myCellModel.titleLabelZoomEnabled) {
+        self.titleLabel.transform = CGAffineTransformMakeScale(myCellModel.titleLabelZoomScale, myCellModel.titleLabelZoomScale);
+        self.maskTitleLabel.transform = CGAffineTransformMakeScale(myCellModel.titleLabelZoomScale, myCellModel.titleLabelZoomScale);
+    }else {
+        self.titleLabel.transform = CGAffineTransformIdentity;
+        self.maskTitleLabel.transform = CGAffineTransformIdentity;
+    }
 
     self.maskTitleLabel.hidden = !myCellModel.titleLabelMaskEnabled;
     if (myCellModel.titleLabelMaskEnabled) {

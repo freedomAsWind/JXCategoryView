@@ -7,10 +7,10 @@
 
 [There is an English version of README here. just click it！](https://github.com/pujiaxin33/JXCategoryView/blob/master/README-English.md)
 
-A powerful and easy to use category view (segmentedcontrol, pagingview, pagerview, pagecontrol, scrollview) (腾讯新闻、网易新闻、今日头条、QQ音乐、京东、爱奇艺等所有主流APP分类切换滚动视图)
+A powerful and easy to use category view (segmentedcontrol, segmentview, pagingview, pagerview, pagecontrol) (腾讯新闻、今日头条、QQ音乐、网易云音乐、京东、爱奇艺、腾讯视频、淘宝、天猫、简书、微博等所有主流APP分类切换滚动视图)
 
 与其他的同类三方库对比的优点：
-- 使用POP(Protocol Oriented Programming面对协议编程)封装指示器逻辑，轻松扩展指示器效果；
+- 使用POP(Protocol Oriented Programming面对协议编程)封装指示器逻辑，可以为所欲为的自定义指示器效果；
 - 提供更加全面丰富的效果，交互更加顺畅；
 - 使用子类化管理cell样式，逻辑更清晰，扩展更简单；
 
@@ -27,6 +27,7 @@ BallView QQ黏性红点  |  <img src="JXCategoryView/Images/QQBall.gif" width="3
 TriangleView 三角形底部  |  <img src="JXCategoryView/Images/TriangleBottom.gif" width="343" height="80"> |
 TriangleView 三角形顶部  |  <img src="JXCategoryView/Images/TriangleTop.gif" width="343" height="80"> |
 BackgroundView椭圆形  |  <img src="JXCategoryView/Images/BackgroundEllipseLayer.gif" width="343" height="80"> |
+BackgroundView椭圆形+阴影  |  <img src="JXCategoryView/Images/BackgroundViewShadow.gif" width="343" height="80"> |
 BackgroundView长方形  |  <img src="JXCategoryView/Images/Rectangle.gif" width="343" height="80"> |
 BackgroundView遮罩有背景  |  <img src="JXCategoryView/Images/TitleMask.gif" width="343" height="80"> |
 BackgroundView遮罩无背景  |  <img src="JXCategoryView/Images/TitleMaskNoBackgroundView.gif" width="343" height="80"> |
@@ -34,6 +35,7 @@ ImageView底部(小船)  |  <img src="JXCategoryView/Images/IndicatorImageView.g
 ImageView背景(最佳男歌手)  |  <img src="JXCategoryView/Images/BackgroundImageView.gif" width="343" height="80"> |
 ImageView滚动效果(足球)  |  <img src="JXCategoryView/Images/Football.gif" width="343" height="135"> |
 混合使用 |  <img src="JXCategoryView/Images/Mixed.gif" width="343" height="80"> |
+indicator自定义-点线效果 |  <img src="JXCategoryView/Images/IndicatorCustomizeGuide.gif" width="343" height="80"> |
 
 JXCategoryIndicatorLineView、JXCategoryIndicatorImageView、JXCategoryIndicatorBallView、JXCategoryIndicatorTriangleView均支持上下位置切换。
 
@@ -52,13 +54,19 @@ TitleImage_Right |  <img src="JXCategoryView/Images/TitleImageRight.gif" width="
 Image |  <img src="JXCategoryView/Images/CellImage.gif" width="343" height="80"> |
 数字 |  <img src="JXCategoryView/Images/Number.gif" width="343" height="80"> |
 红点 |  <img src="JXCategoryView/Images/CellRedDot.gif" width="343" height="80"> |
+自定义-多行+富文本 |  <img src="JXCategoryView/Images/AttributeView.gif" width="343" height="80"> |
+腾讯视频效果  |  <img src="JXCategoryView/Images/TXVedio.gif" width="343" height="80">  |
 
 ### 特殊效果预览
 
+说明 | Gif |
+----|------|
 SegmentedControl |  <img src="JXCategoryView/Images/SegmentedControl.gif" width="343" height="80"> |
 导航栏使用 |  <img src="JXCategoryView/Images/SegmentedControlNavi.gif" width="343" height="80"> |
-嵌套使用 |  <img src="JXCategoryView/Images/SegmentedControlNavi.gif" width="343" height="272"> |
+嵌套使用 |  <img src="JXCategoryView/Images/Nest.gif" width="343" height="272"> |
 个人主页(上下左右滚动、header悬浮) |  <img src="JXCategoryView/Images/UserProfile.gif" width="343" height="562"> |
+垂直列表滚动<br/> 高仿腾讯视频<br/>（背景色异常是录屏软件bug） |  <img src="JXCategoryView/Images/VerticalList.gif" width="343" height="607"> |
+数据源刷新&列表数据加载 示例 |  <img src="JXCategoryView/Images/LoadData.gif" width="343" height="619"> |
 
 
 ## 要求
@@ -87,8 +95,12 @@ end
 
 - 指示器样式自定义：使用POP(Protocol Oriented Programming面对协议编程)封装指示器逻辑，只要遵从`JXCategoryIndicatorProtocol`协议，就可以实现你的指示器效果。参考：JXCategoryIndicatorLineView；
 - Cell样式自定义：使用子类化，基类搭建基础，子类实现特殊效果。便于代码管理，功能扩展；参考：JXCategoryNumberView；
-- **特殊说明：** 即使提供了灵活扩展，我的源码也不可能满足所有情况，建议大家可以通过fork仓库，维护自己的一套效果。也可以直接拖入源文件进行修改。
+
+## 特殊说明
+
+- 自定义：即使提供了灵活扩展，我的源码也不可能满足所有情况，建议大家可以通过fork仓库，维护自己的一套效果。也可以直接拖入源文件进行修改。
 - 个人主页效果：上下左右滚动且HeaderView悬浮的实现，用的是我写的这个库[JXPagingView](https://github.com/pujiaxin33/JXPagingView)。
+- 垂直列表滚动：参考demo工程的`VerticalListViewController`，未做功能封装，参考里面的代码做，多注意注释，就可以实现了。
 
 ## 常用属性说明
 
@@ -113,8 +125,10 @@ titleSelectedColor    | titleLabel选中颜色 默认：[UIColor redColor] |
 titleFont    | titleLabel的字体 默认：[UIFont systemFontOfSize:15] |
 titleColorGradientEnabled    | title的颜色是否渐变过渡 默认：NO |
 titleLabelMaskEnabled    | titleLabel是否遮罩过滤 默认：NO |
-zoomEnabled    | cell是否缩放 默认：NO |
-zoomScale    | cell缩放比例 默认：1.2 |
+titleLabelZoomEnabled    | titleLabel是否缩放 默认：NO |
+titleLabelZoomScale    | citleLabel缩放比例 默认：1.2 |
+imageZoomEnabled    | imageView是否缩放 默认：NO |
+imageZoomScale    | imageView缩放比例 默认：1.2 |
 separatorLineShowEnabled    | cell分割线是否展示 默认：NO (颜色、宽高可以设置) |
 JXCategoryTitleImageType    | 图片所在位置：上面、左边、下面、右边 默认：左边 |
 
@@ -168,14 +182,27 @@ titleCategoryView.indicators = @[lineView, triangleView, ballView, backgroundVie
 [self.view addSubview:self.categoryView];
 ```
 
-- 刷新单个cell，比如红点示例里面，调用`- (void)reloadCell:(NSUInteger)index`
-- 数据源、属性配置有变动时（比如从服务器拉取回来数据），需要调用`reloadDatas`方法刷新状态。
+- 单个cell刷新：比如红点示例里面，调用`- (void)reloadCell:(NSUInteger)index`
+- 所有状态重置：数据源、属性配置有变动时（比如从服务器拉取回来数据），需要调用`reloadDatas`方法刷新状态。
+
+### 指示器样式自定义
+
+仓库自带：`JXCategoryIndicatorLineView、JXCategoryIndicatorTriangleView、JXCategoryIndicatorImageView、JXCategoryIndicatorBackgroundView、JXCategoryIndicatorBallView`
+
+主要实现的方法：
+- 继承JXCategoryIndicatorComponentView，内部遵从了`JXCategoryIndicatorProtocol`协议；
+- 实现协议方法，自定义效果：
+    - `- (void)jx_refreshState:(CGRect)selectedCellFrame`初始化或reloadDatas，重置状态；
+    - `- (void)jx_contentScrollViewDidScrollWithLeftCellFrame:(CGRect)leftCellFrame rightCellFrame:(CGRect)rightCellFrame selectedPosition:(JXCategoryCellClickedPosition)selectedPosition percent:(CGFloat)percent` contentScrollView在进行手势滑动时，处理指示器跟随手势变化UI逻辑；
+    - `- (void)jx_selectedCell:(CGRect)cellFrame clickedRelativePosition:(JXCategoryCellClickedPosition)clickedRelativePosition`根据选中的某个cell，处理过渡效果；
+    
+具体实例：参考demo工程里面的`JXCategoryIndicatorDotLineView`
 
 ### Cell子类化注意事项
 
-任何子类化，view、cell、cellModel三个都要子类化，即使某个子类cell什么事情都不做。用于维护继承链，以免以后子类化都不知道要继承谁了
+仓库自带：`JXCategoryTitleView、JXCategoryTitleImageView、JXCategoryNumberView、JXCategoryDotView、JXCategoryImageView`
 
-主要重载的方法，参考：`JXCategoryTitleView、JXCategoryTitleImageView、JXCategoryNumberView、JXCategoryDotView、JXCategoryImageView`
+主要实现的方法：
 - `- (Class)preferredCellClass`返回自定义的cell；
 - `- (void)refreshDataSource`刷新数据源，使用自定义的cellModel；
 - `- (void)refreshCellModel:(JXCategoryBaseCellModel *)cellModel index:(NSInteger)index `初始化、reloadDatas时对数据源重置；
@@ -183,16 +210,13 @@ titleCategoryView.indicators = @[lineView, triangleView, ballView, backgroundVie
 - `- (void)refreshSelectedCellModel:(JXCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(JXCategoryBaseCellModel *)unselectedCellModel`cell选中时进行状态刷新；
 - `- (void)refreshLeftCellModel:(JXCategoryBaseCellModel *)leftCellModel rightCellModel:(JXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio`cell左右滚动切换的时候，进行状态刷新；
 
-#### 指示器样式自定义
+具体实例：参考demo工程里面的`JXCategoryTitleAttributeView`
 
-参考：`JXCategoryIndicatorLineView、JXCategoryIndicatorTriangleView、JXCategoryIndicatorImageView、JXCategoryIndicatorBackgroundView、JXCategoryIndicatorBallView`
+#### 继承提示
 
-- 继承JXCategoryIndicatorComponentView，内部遵从了`JXCategoryIndicatorProtocol`协议；
-- 实现协议方法，自定义效果：
-    - `- (void)jx_refreshState:(CGRect)selectedCellFrame`初始化或reloadDatas，重置状态；
-    - `- (void)jx_contentScrollViewDidScrollWithLeftCellFrame:(CGRect)leftCellFrame rightCellFrame:(CGRect)rightCellFrame selectedPosition:(JXCategoryCellClickedPosition)selectedPosition percent:(CGFloat)percent` contentScrollView在进行手势滑动时，处理指示器跟随手势变化UI逻辑；
-    - `- (void)jx_selectedCell:(CGRect)cellFrame clickedRelativePosition:(JXCategoryCellClickedPosition)clickedRelativePosition`根据选中的某个cell，处理过渡效果；
-
+- 任何子类化，view、cell、cellModel三个都要子类化，即使某个子类cell什么事情都不做。用于维护继承链，以免以后子类化都不知道要继承谁了；
+- 如果你先完全自定义cell里面的内容，那就继承`JXCategoryIndicatorView、JXCategoryIndicatorCell、JXCategoryIndicatorCellModel`，就像`JXCategoryTitleView、JXCategoryTitleCell、JXCategoryTitleCellModel`那样去做；
+- 如果你只是在父类进行一些微调，那就继承目标view、cell、cellModel，对cell原有控件微调、或者加入新的控件皆可。就像`JXCategoryTitleImageView系列、JXCategoryTitleAttributeView系列`那样去做；
 
 ### 侧滑手势
 
@@ -241,6 +265,13 @@ titleCategoryView.indicators = @[lineView, triangleView, ballView, backgroundVie
     [self.scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width*index, 0) animated:YES];
 }
 ```
+
+## 更新记录
+
+- 2018.8.21 发布1.0.0版本，更新内容：使用POP（面向协议编程）重构指示器视图；[迁移指南](https://github.com/pujiaxin33/JXCategoryView/blob/master/Migration/1.0.0.md)
+- 2018.8.22 发布1.0.1版本，更新内容：删除zoomEnabled,新增titleLabelZoomEnabled、imageZoomEnabled;
+- 2018.8.23 发布1.0.2版本，更新内容：添加cellWidthZoomEnabled实现腾讯视频效果;
+- 2018.8.24 发布1.0.3版本，更新内容：添加垂直列表滚动效果、指示器添加verticalMargin属性、JXCategoryViewDelegate代理方法优化;
 
 ## 补充
 

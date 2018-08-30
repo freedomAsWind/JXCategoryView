@@ -32,6 +32,8 @@
     self.myCategoryView.imageNames = imageNames;
     self.myCategoryView.selectedImageNames = selectedImageNames;
     self.myCategoryView.imageType = JXCategoryTitleImageType_LeftImage;
+    self.myCategoryView.imageZoomEnabled = YES;
+    self.myCategoryView.imageZoomScale = 1.3;
 
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
     lineView.indicatorLineWidth = 20;
@@ -62,7 +64,7 @@
 
 - (void)titleImageSettingVCDidSelectedImageType:(JXCategoryTitleImageType)imageType {
     self.myCategoryView.imageType = imageType;
-    [self.categoryView reloadDatas];
+    [self.categoryView reloadData];
 }
 
 @end

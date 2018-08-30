@@ -24,8 +24,8 @@
     NSArray *selectedImageNames = @[@"crab_selected", @"lobster_selected", @"apple_selected", @"carrot_selected", @"grape_selected", @"watermelon_selected"];
 
     self.myCategoryView.imageNames = self.imageNames;
-    self.myCategoryView.zoomEnabled = YES;
     self.myCategoryView.selectedImageNames = selectedImageNames;
+    self.myCategoryView.imageZoomEnabled = YES;
 
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
     lineView.indicatorLineWidth = 20;
