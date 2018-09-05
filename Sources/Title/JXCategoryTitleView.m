@@ -15,9 +15,9 @@
 
 @implementation JXCategoryTitleView
 
-- (void)initializeDatas
+- (void)initializeData
 {
-    [super initializeDatas];
+    [super initializeData];
 
     _titleLabelZoomEnabled = NO;
     _titleLabelZoomScale = 1.2;
@@ -89,7 +89,7 @@
     }
 }
 
-- (CGFloat)preferredCellWidthWithIndex:(NSInteger)index {
+- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
     if (self.cellWidth == JXCategoryViewAutomaticDimension) {
         return ceilf([self.titles[index] boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.height) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : self.titleFont} context:nil].size.width);
     }else {

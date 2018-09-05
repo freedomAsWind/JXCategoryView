@@ -51,6 +51,7 @@ TitleImage_Top |  <img src="JXCategoryView/Images/TitleImageTop.gif" width="343"
 TitleImage_Left |  <img src="JXCategoryView/Images/TitleImageLeft.gif" width="343" height="80"> |
 TitleImage_Bottom |  <img src="JXCategoryView/Images/TitleImageBottom.gif" width="343" height="80"> |
 TitleImage_Right |  <img src="JXCategoryView/Images/TitleImageRight.gif" width="343" height="80"> |
+cell图文混用 |  <img src="JXCategoryView/Images/CellMixed.gif" width="343" height="90"> |
 Image |  <img src="JXCategoryView/Images/CellImage.gif" width="343" height="80"> |
 数字 |  <img src="JXCategoryView/Images/Number.gif" width="343" height="80"> |
 红点 |  <img src="JXCategoryView/Images/CellRedDot.gif" width="343" height="80"> |
@@ -88,6 +89,8 @@ target '<Your Target Name>' do
     pod 'JXCategoryView'
 end
 ```
+
+`pod install`之前务必`pod repo udpate`一下
 
 ## 结构图
 
@@ -183,7 +186,7 @@ titleCategoryView.indicators = @[lineView, triangleView, ballView, backgroundVie
 ```
 
 - 单个cell刷新：比如红点示例里面，调用`- (void)reloadCell:(NSUInteger)index`
-- 所有状态重置：数据源、属性配置有变动时（比如从服务器拉取回来数据），需要调用`reloadDatas`方法刷新状态。
+- 所有状态重置：数据源、属性配置有变动时（比如从服务器拉取回来数据），需要调用`reloadData`方法刷新状态。
 
 ### 指示器样式自定义
 
@@ -192,7 +195,7 @@ titleCategoryView.indicators = @[lineView, triangleView, ballView, backgroundVie
 主要实现的方法：
 - 继承JXCategoryIndicatorComponentView，内部遵从了`JXCategoryIndicatorProtocol`协议；
 - 实现协议方法，自定义效果：
-    - `- (void)jx_refreshState:(CGRect)selectedCellFrame`初始化或reloadDatas，重置状态；
+    - `- (void)jx_refreshState:(CGRect)selectedCellFrame`初始化或reloadData，重置状态；
     - `- (void)jx_contentScrollViewDidScrollWithLeftCellFrame:(CGRect)leftCellFrame rightCellFrame:(CGRect)rightCellFrame selectedPosition:(JXCategoryCellClickedPosition)selectedPosition percent:(CGFloat)percent` contentScrollView在进行手势滑动时，处理指示器跟随手势变化UI逻辑；
     - `- (void)jx_selectedCell:(CGRect)cellFrame clickedRelativePosition:(JXCategoryCellClickedPosition)clickedRelativePosition`根据选中的某个cell，处理过渡效果；
     
@@ -205,8 +208,8 @@ titleCategoryView.indicators = @[lineView, triangleView, ballView, backgroundVie
 主要实现的方法：
 - `- (Class)preferredCellClass`返回自定义的cell；
 - `- (void)refreshDataSource`刷新数据源，使用自定义的cellModel；
-- `- (void)refreshCellModel:(JXCategoryBaseCellModel *)cellModel index:(NSInteger)index `初始化、reloadDatas时对数据源重置；
-- `- (CGFloat)preferredCellWidthWithIndex:(NSInteger)index`根据cell的内容返回对应的宽度；
+- `- (void)refreshCellModel:(JXCategoryBaseCellModel *)cellModel index:(NSInteger)index `初始化、reloadData时对数据源重置；
+- `- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index`根据cell的内容返回对应的宽度；
 - `- (void)refreshSelectedCellModel:(JXCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(JXCategoryBaseCellModel *)unselectedCellModel`cell选中时进行状态刷新；
 - `- (void)refreshLeftCellModel:(JXCategoryBaseCellModel *)leftCellModel rightCellModel:(JXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio`cell左右滚动切换的时候，进行状态刷新；
 
@@ -272,6 +275,7 @@ titleCategoryView.indicators = @[lineView, triangleView, ballView, backgroundVie
 - 2018.8.22 发布1.0.1版本，更新内容：删除zoomEnabled,新增titleLabelZoomEnabled、imageZoomEnabled;
 - 2018.8.23 发布1.0.2版本，更新内容：添加cellWidthZoomEnabled实现腾讯视频效果;
 - 2018.8.24 发布1.0.3版本，更新内容：添加垂直列表滚动效果、指示器添加verticalMargin属性、JXCategoryViewDelegate代理方法优化;
+- 2018.9.4 发布1.0.4版本，更新内容：修复bug、添加cell图文混用示例;
 
 ## 补充
 

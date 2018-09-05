@@ -18,8 +18,8 @@
 
 @implementation JXCategoryIndicatorView
 
-- (void)initializeDatas {
-    [super initializeDatas];
+- (void)initializeData {
+    [super initializeData];
 
     _separatorLineShowEnabled = NO;
     _separatorLineColor = [UIColor lightGrayColor];
@@ -71,12 +71,14 @@
         }
     }
 
-    for (UIView<JXCategoryIndicatorProtocol> *component in self.indicators) {
-        [component jx_refreshState:selectedCellFrame];
-        if ([component isKindOfClass:[JXCategoryIndicatorBackgroundView class]]) {
-            CGRect maskFrame = component.frame;
-            maskFrame.origin.x = maskFrame.origin.x - selectedCellFrame.origin.x;
-            selectedCellModel.backgroundViewMaskFrame = maskFrame;
+    if (!CGRectEqualToRect(selectedCellFrame, CGRectZero)) {
+        for (UIView<JXCategoryIndicatorProtocol> *component in self.indicators) {
+            [component jx_refreshState:selectedCellFrame];
+            if ([component isKindOfClass:[JXCategoryIndicatorBackgroundView class]]) {
+                CGRect maskFrame = component.frame;
+                maskFrame.origin.x = maskFrame.origin.x - selectedCellFrame.origin.x;
+                selectedCellModel.backgroundViewMaskFrame = maskFrame;
+            }
         }
     }
 }
@@ -150,13 +152,13 @@
     }
 }
 
-- (BOOL)selectCellWithIndex:(NSInteger)index {
+- (BOOL)selectCellAtIndex:(NSInteger)index {
     //是否点击了相对于选中cell左边的cell
     JXCategoryCellClickedPosition clickedPosition = JXCategoryCellClickedPosition_Left;
     if (index > self.selectedIndex) {
         clickedPosition = JXCategoryCellClickedPosition_Right;
     }
-    BOOL result = [super selectCellWithIndex:index];
+    BOOL result = [super selectCellAtIndex:index];
     if (!result) {
         return NO;
     }
